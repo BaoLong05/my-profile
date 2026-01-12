@@ -15,11 +15,13 @@
     top: -20%;
     z-index: -10;
     left: 3%;
+    animation: float 6s ease-in-out infinite;
   }
 
   & img:nth-child(2) {
     bottom: -20%;
     right: 3%;
+    animation: float 7s 1s ease-in-out infinite;
   }
 }
 
