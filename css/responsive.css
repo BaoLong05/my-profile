@@ -1,0 +1,124 @@
+/* điều chỉnh màn hình media */
+
+/* Desktop */
+@media (max-width: 1536px){
+    .container{
+        max-width: 1440px;
+    }
+}
+
+@media (max-width: 1440px){
+    .container{
+        max-width: 1028px;
+    }
+        /* skills */
+    .softSkills_badge{
+        position: static !important;
+        transform: none !important;
+
+    }
+    .softSkills__book_icons{
+        display: none;
+    }
+}
+
+/* tablet và laptop nhỏ */
+@media(max-width:1280px) {
+    .container{
+        max-width: 1024px;
+    }
+    section{
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    /* header */
+    .header__container{
+        flex-direction: column;
+    }
+
+    .header_column--left{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header__content--left{
+        align-items: center;
+        & p {
+            text-align: center;
+            max-width: 230px;
+        }
+    }
+
+    .header__column--right{
+        align-items: center;
+        text-align: center;
+    }
+
+}
+
+/* small tablet - landscape mode */
+@media (max-width: 768px){
+    .container{
+        max-width: 640px;
+    }
+
+    /* about me */
+    .aboutMe__section{
+        margin: 80px auto;
+    }
+
+    & img{
+        display: none;
+    }
+
+    /* skills */
+    .skills__grid_container{
+        grid-template-columns: repeat(1, minmax(200px, 1fr));
+        grid-template-rows: repeat(2, minmax(280px, auto));
+        grid-auto-rows: minmax(280px, auto);
+
+        & .skill__grid_item{
+            padding: 1rem 1rem;
+            grid-column: span 1 !important;
+            grid-row: span 1;
+        }
+    }
+}
+/* Phone */
+@media (max-width: 640px){
+    :root{
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .container{
+        max-width: 475px;
+        padding: 0 1rem;
+    }
+    .section__title{
+        font-size: 2rem;
+        line-height: 2.5rem;
+        text-align: center;
+    }
+    header{
+        margin-top: 20px;
+    }
+    .header__badge_container{
+        flex-direction: column;
+    }
+
+    /* about me */
+    .aboutMe__container{
+        padding: 1rem;
+        width: 90%;
+        border-radius: 2rem;
+    }
+
+    .aboutMe__content_container{
+        border-radius: 2rem;
+    }
+}
+
+/* footer */
+/* footer{
+    padding: 0;
+} */
