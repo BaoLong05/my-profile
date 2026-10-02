@@ -51,3 +51,68 @@
         transform: translateX(calc(0% + 12px));
     }
 }
+
+/* Scroll reveals and soft motion. The observer adds .is-visible only when
+   an element reaches the viewport, so the page remains light on first load. */
+body.motion-ready .reveal,
+body.motion-ready .reveal-item {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.motion-ready .reveal.is-visible,
+body.motion-ready .reveal-item.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+body.motion-ready .reveal-item:nth-child(2) { transition-delay: 90ms; }
+body.motion-ready .reveal-item:nth-child(3) { transition-delay: 170ms; }
+body.motion-ready .reveal-item:nth-child(4) { transition-delay: 250ms; }
+body.motion-ready .reveal-item:nth-child(5) { transition-delay: 330ms; }
+body.motion-ready .reveal-item:nth-child(6) { transition-delay: 410ms; }
+
+body.motion-ready .header_column--left,
+body.motion-ready .header__column--right {
+    animation: enter-up 800ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.motion-ready .header__column--right { animation-delay: 120ms; }
+
+@keyframes enter-up {
+    from { opacity: 0; transform: translate3d(0, 18px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes drift {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+    50% { transform: translate3d(0, -10px, 0) rotate(1.5deg); }
+}
+
+@keyframes breathe {
+    0%, 100% { box-shadow: 0 2px 4px hsla(233, 45%, 20%, 0.1); }
+    50% { box-shadow: 0 12px 26px hsla(233, 45%, 20%, 0.16); }
+}
+
+.aboutMe__section img:nth-child(1) { animation: float 6s ease-in-out infinite, drift 8s ease-in-out infinite; }
+.aboutMe__section img:nth-child(2) { animation: float 7s 1s ease-in-out infinite, drift 9s 0.5s ease-in-out infinite reverse; }
+.header__img { transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 350ms ease; }
+.header__img:hover { transform: translateY(-5px) rotate(2deg); box-shadow: 0 14px 24px hsla(233, 45%, 20%, 0.2); }
+.skills__grid_item:not(:nth-child(1)):not(:nth-child(4)) { animation: breathe 5s ease-in-out infinite; }
+.skills__grid_item:nth-child(3) { animation-delay: 1.2s; }
+.projects__cards { will-change: transform; }
+.projects__cards:hover { transform: translateY(-8px) scale(1.02) rotate(-0.4deg); }
+
+@media (prefers-reduced-motion: reduce) {
+    body.motion-ready .reveal,
+    body.motion-ready .reveal-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .aboutMe__section img,
+    .skills__grid_item,
+    .projects__cards { animation: none !important; }
+}
